@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    margin-left: 150px;
+}
+
+/* .container {
+    background-color: #131c35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    margin: 15px;
+    padding: 20px;
+    box-shadow: #00000059 0px 5px 15px;
+} */
+
+.section {
+    position: absolute;
+    background-color: #ffffff;
+    width: 530px;
+    height: 50px;
+    margin: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #00000059 0px 5px 15px;
+}
+
+.col {
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.first {
+    width: 200px;
+}
+
+.box {
+    display: inline-block;
+    padding: 5px 5px;
+    border: 1px solid #2f2f2f6e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.selectFont {
+    outline: none;
+    border: none;
+    width: 12rem;
+    color: #131c35;
+    font-size: 20px;
+    padding: 5px 0px;
+    cursor: pointer;
+}
+
+
+input[type=number] {
+    outline: none;
+    border: none;
+    width: 55px;
+    color: #131c35;
+    font-size: 21px;
+    padding: 5px 5px;
+}
+
+.third,
+.fourt,
+.five,
+.six {
+    outline: none;
+    border: none;
+    padding: 0px;
+}
+
+.third button {
+    outline: none;
+    width: 45px;
+    border: 1px solid #2f2f2f6e;
+    border-radius: 4px;
+    color: #131c35;
+    font-size: 21px;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.fourt button {
+    outline: none;
+    width: 45px;
+    border: 1px solid #2f2f2f6e;
+    border-radius: 4px;
+    color: #131c35;
+    font-size: 21px;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.five button {
+    outline: none;
+    width: 45px;
+    border: 1px solid #2f2f2f6e;
+    border-radius: 4px;
+    color: #131c35;
+    font-size: 21px;
+    padding: 10px 0px;
+    cursor: pointer;
+}

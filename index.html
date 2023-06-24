@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <script src="https://kit.fontawesome.com/e6989afcf9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container" style="display: flex; flex-direction: row;">
+            <canvas id="canvas" width="570" height="570" style="border:1px solid #000000;top: 5px;left: 5px;">
+            </canvas>
+
+            <div class="btn-container"
+                style="display: flex; justify-content: space-evenly; align-items: center; flex-direction:column; ">
+
+                <button type="button" id="btnCreateText" style="border: 0.5px solid #333;
+                padding: 12px;
+                margin-left: 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">Create text
+                </button>
+
+                <button type="button" id="btnCreateDate" style="border: 0.5px solid #333;
+                padding: 12px;
+                margin-left: 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">Create date
+                </button>
+
+                <button type="button" id="btnCreateGroup" style="display: '';border: 0.5px solid #333;
+                padding: 12px;
+                margin-left: 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">Group
+                </button>
+                <button type="button" id="btnDiscardGroup" style="display: '';border: 0.5px solid #333;
+                padding: 12px;
+                margin-left: 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">Discard group
+                </button>
+                <button type="button" id="btnMirrorEfect" style="display: '';border: 0.5px solid #333;
+                padding: 12px;
+                margin-left: 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">Mirror effect
+                </button>
+
+                <button type="button" id="send-to-front" style="border: 0.5px solid #000000;
+                                padding: 12px;
+                                margin-left: 7px;
+                                border-radius: 5px;
+                                background-color: #ffffff;
+                                color: #fff;
+                                cursor: pointer;">
+                    <img src="./src/img/bring-to-front.png" style="transform: rotate(90deg);" width="20px" height="20px"
+                        alt="sent to back">
+                </button>
+                <button type="button" id="send-to-back" style=" border: 0.5px solid #000000; padding: 12px; margin-left:
+                    7px; border-radius: 5px; background-color: #ffffff; color: #fff; cursor: pointer;">
+                    <img src="./src/img/send-to-back.png" width="20px" height="20px" alt="sent to front">
+                </button>
+
+
+
+
+
+                <div class="btn-container"
+                    style="display: flex; justify-content: space-evenly; align-items: center; flex-direction:column; ">
+                    <div>
+                        <label for="dragmode" style="margin-left: 7px;
+                    border-radius: 5px;
+                    color: #222;
+                    margin-top: 50px;
+                    padding:2px;">
+                            Dragmode
+                            <input type="checkbox" id="dragmode" name="dragmode" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ******************** -->
+        <!-- TEXT CUSTOMATIZATION -->
+        <!-- ******************** -->
+
+        <section class="section" id="customText" style="display:none;">
+            <div class="row">
+                <div class="col">
+                    <div class="first box">
+                        <select class="selectFont" name="fontFamily" id="fontFamily">
+                            <option class="options" value="Times New Roman" style="font-family: Times New Roman;">
+                                Times New
+                                Roman</option>
+                            <option class="options" value="Roboto" style="font-family: Roboto;">Roboto</option>
+                            <option class="options" value="Verdana" style="font-family: Verdana;">Verdana</option>
+                            <option class="options" value="Arial" style="font-family: Arial;">Arial</option>
+                            <option class="options" value="Comic Sans ms" style="font-family: Comic Sans ms;">Comic
+                                Sans ms
+                            </option>
+                        </select>
+
+                    </div>
+                    <div class="second box">
+                        <input type="number" id="fontSize" value="16" min="1" max="100">
+
+                    </div>
+                    <div class="third box">
+                        <button type="button" id="align-left">
+                            <i class=" fa-solid fa-align-left"></i>
+                        </button>
+                        <button type="button" id="align-center">
+                            <i class=" fa-solid fa-align-center"></i>
+                        </button>
+                        <button type="button" id="align-right">
+                            <i class=" fa-solid fa-align-right"></i>
+                        </button>
+                    </div>
+                    <div class="fourt box">
+                        <button type="button" id="copyButton">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="five box">
+                        <button type="button">
+                            <i class="fa-regular fa-trash-can" id="trashButton"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <img style="display: none; height: 15px;width: 15px; z-index: 1;" src="./src/img/oso.png" alt="oso" id="osoImage">
+    <img style="display: none; height: 15px;width: 15px; z-index: 1;" src="./src/img/dije.png" alt="dije"
+        id="dijeImage">
+
+    <button type="button" onclick="addCircles()" style="border: 0.5px solid #333;
+                padding: 12px;
+                margin: 7px 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">Add circles</button>
+
+    <button type="button" id="undo" style="border: 0.5px solid #333;
+                padding: 12px;
+                margin: 7px 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">
+        <i class="fa-solid fa-rotate-left"></i>
+    </button>
+    <button type="button" id="redo" style="border: 0.5px solid #333;
+                padding: 12px;
+                margin: 7px 7px;
+                border-radius: 5px;
+                background-color: #222;
+                color: #fff;
+                cursor: pointer;">
+        <i class="fa-solid fa-rotate-right"></i>
+    </button>
+    <button type="button" id="btnCreateOutline" style="border: 0.5px solid #333;
+                    padding: 12px;
+                    margin-left: 7px;
+                    border-radius: 5px;
+                    background-color: #222;
+                    color: #fff;
+                    cursor: pointer;">Create outline
+    </button>
+    <input type="number" value="1" min="1" max="5" name="shadowSizeOfBoxes" id="numberShadows" style="border: 0.5px solid #333;
+                                    padding-bottom: 10px;
+                                    border-radius: 5px;
+                                    color: #000000;
+                                    cursor: pointer;">
+
+
+    <section class="input-image" style="margin-top: 100px;">
+        <input id="input-image" type="file" name="images-input" multiple>
+    </section>
+
+
+    <section class="documentation">
+        <div>
+            <p></p>
+        </div>
+    </section>
+    <!-- <script src="https://raw.githubusercontent.com/lyzerk/fabric-history/master/src/index.js"></script> -->
+    <script src="https://unpkg.com/fabric@latest/dist/fabric.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Roboto']
+            }
+        });
+    </script>
+    <script src="./src/index.js"></script>
+</body>
+
+</html>
