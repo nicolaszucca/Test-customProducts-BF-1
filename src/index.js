@@ -76,13 +76,6 @@ const center = canvas.getCenter();
     }));
 })()
 
-/* function historyInit() {
-    const history = [];
-    const next = [];
-} */
-/* var canvasStates = [];
-var redoStates = []; */
-
 let key = true;
 canvas.on({
     'mouse:dblclick': (opt) => {
@@ -554,7 +547,6 @@ function createGroup(objects = []) {
     return group;
 }
 
-//TODO: parametros de tamaño de contorno.
 function outlineGenerator(outline = null, txt = '', fontFamily = 'Times New Roman', fontSize = 50) {
     let shadowNumber = 1;
     let shadow = '';
