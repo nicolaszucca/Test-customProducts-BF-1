@@ -9,6 +9,8 @@ const btnDragMode = document.querySelector('#dragmode');
 const selectFamily = document.querySelector('#fontFamily');
 const customText = document.querySelector('#customText');//menu text custom
 
+const fontSize = document.querySelector('#fontSize');//menu text custom
+
 const alignLeft = document.querySelector('#align-left');
 const alignCenter = document.querySelector('#align-center');
 const alignRight = document.querySelector('#align-right');
@@ -84,10 +86,10 @@ var redoStates = []; */
 let key = true;
 canvas.on({
     'mouse:dblclick': (opt) => {
-        const x = opt.pointer.x - 145;
+        const x = opt.pointer.x - 120;
         const y = opt.pointer.y - 15;
         const pos = opt.pointer.y - 120
-        //addText(x, y, pos);
+        addText(x, y, pos);
     },
 
     'selection:created': (opt) => {
@@ -156,7 +158,7 @@ function clearText(e) {
 }
 
 function addText(x = 75, y = 430, pos = 325) {
-    const text = new fabric.Textbox('Ingrese texto', { //NOTE: fabric.Text / .Textbox
+    const text = new fabric.IText('Ingrese texto', { //NOTE: fabric.Text / .Textbox
         left: x,
         top: y,
         width: 320,
@@ -169,7 +171,6 @@ function addText(x = 75, y = 430, pos = 325) {
         editable: true,
 
         backgroundColor: 'transparent',
-        fill: '#444',
     });
     canvas.add(text);
     canvas.setActiveObject(text);
@@ -251,10 +252,10 @@ mirrorEffect.addEventListener('click', (e) => {
 
 btnCreateOutline.addEventListener('click', (e) => {
 
-    const { text, top, left, width, height, fontFamily } = canvas.getActiveObject();
+    const { text, top, left, width, height, fontFamily, fontSize } = canvas.getActiveObject();
     const outline = numberShadows.value;
 
-    const objOutline = outlineGenerator(outline, text, fontFamily);
+    const objOutline = outlineGenerator(outline, text, fontFamily, fontSize);
     //TODO: groupo mas ancho y del mismo tamaño que el box al que le doy contorno
     const group = new fabric.Group(objOutline, { left: left, top: top, originX: 'left', originY: 'top', width: width, height: height });
     canvas.remove(canvas.getActiveObject())
@@ -393,6 +394,12 @@ alignRight.addEventListener('click', (e) => {
     }
 })
 
+fontSize.addEventListener('change', (e) => {
+    const object = canvas.getActiveObject();
+    const size = e.target.value;
+    object.set({ fontSize: size });
+    canvas.renderAll();
+})
 
 copyButton.addEventListener('click', (e) => {
     const object = canvas.getActiveObject();
@@ -548,7 +555,7 @@ function createGroup(objects = []) {
 }
 
 //TODO: parametros de tamaño de contorno.
-function outlineGenerator(outline = null, txt = '', fontFamily = 'Times New Roman') {
+function outlineGenerator(outline = null, txt = '', fontFamily = 'Times New Roman', fontSize = 50) {
     let shadowNumber = 1;
     let shadow = '';
     const result = [];
@@ -556,7 +563,6 @@ function outlineGenerator(outline = null, txt = '', fontFamily = 'Times New Roma
     if (outline) {
         shadowNumber = outline;
     }
-    console.log("shadowNumber", shadowNumber);
     for (let i = shadowNumber; i >= -shadowNumber; i--) {
         for (let j = -shadowNumber; j <= shadowNumber; j++) {
             if (i === 0 && j === 0) {
@@ -564,7 +570,7 @@ function outlineGenerator(outline = null, txt = '', fontFamily = 'Times New Roma
             }
 
             shadow = (i + "px " + j + 'px 0 #fff');
-            let text = createDate(txt, shadow, fontFamily);
+            let text = createDate(txt, shadow, fontFamily, fontSize);
             result.push(text);
         }
 
@@ -572,7 +578,7 @@ function outlineGenerator(outline = null, txt = '', fontFamily = 'Times New Roma
     return result;
 }
 
-function createDate(text = '01/01/2000', shadow = '', fontFamily = 'Times New Roman') {
+function createDate(text = '01/01/2000', shadow = '', fontFamily = 'Times New Roman', fontSize = 50) {
 
     return new fabric.IText(text, {
         left: center.left - 120,
@@ -585,7 +591,7 @@ function createDate(text = '01/01/2000', shadow = '', fontFamily = 'Times New Ro
         shadow: shadow,
         customType: 'datebox',
 
-        fontSize: 50,
+        fontSize: fontSize,
 
         scaleX: 0.85,
         scaleY: 0.85,
