@@ -113,3 +113,35 @@ input[type=number] {
     padding: 10px 0px;
     cursor: pointer;
 }
+
+.documentation {
+    margin: 100px;
+}
+
+ol {
+    counter-reset: item;
+}
+
+ol li {
+    display: block;
+}
+
+ol li:before {
+    font-weight: bold;
+    content: counter(item) ") ";
+    counter-increment: item;
+    color: rgba(49, 28, 169, 0.899);
+}
+
+li {
+    font-family: 'Roboto';
+    font-size: 18px;
+    width: 800px;
+    padding: 10px 0px;
+}
+
+span {
+    color: black;
+    font-weight: bold;
+    text-decoration: dotted;
+}
