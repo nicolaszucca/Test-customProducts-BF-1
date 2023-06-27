@@ -114,7 +114,7 @@ input[type=number] {
     cursor: pointer;
 }
 
-.documentation {
+/* .documentation {
     margin: 100px;
 }
 
@@ -144,4 +144,4 @@ span {
     color: black;
     font-weight: bold;
     text-decoration: dotted;
-}
+} */
