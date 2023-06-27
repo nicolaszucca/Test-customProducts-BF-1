@@ -9,7 +9,7 @@ const btnDragMode = document.querySelector('#dragmode');
 const selectFamily = document.querySelector('#fontFamily');
 const customText = document.querySelector('#customText');//menu text custom
 
-const fontSize = document.querySelector('#fontSize');//menu text custom
+const fontSize = document.querySelector('#fontSize');
 
 const alignLeft = document.querySelector('#align-left');
 const alignCenter = document.querySelector('#align-center');

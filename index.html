@@ -13,12 +13,14 @@
 
 <body>
     <div class="container">
+
         <div class="container" style="display: flex; flex-direction: row;">
-            <canvas id="canvas" width="570" height="570" style="border:1px solid #000000;top: 5px;left: 5px;">
+
+            <canvas id="canvas" width="570" height="570" style="border:1px solid #000000;">
             </canvas>
 
             <div class="btn-container"
-                style="display: flex; justify-content: space-evenly; align-items: center; flex-direction:column; ">
+                style="display: flex; justify-content: space-evenly; align-items: center; flex-direction:column;">
 
                 <button type="button" id="btnCreateText" style="border: 0.5px solid #333;
                 padding: 12px;
@@ -78,10 +80,6 @@
                     <img src="./src/img/send-to-back.png" width="20px" height="20px" alt="sent to front">
                 </button>
 
-
-
-
-
                 <div class="btn-container"
                     style="display: flex; justify-content: space-evenly; align-items: center; flex-direction:column; ">
                     <div>
@@ -97,171 +95,150 @@
                 </div>
             </div>
 
-            <section class="documentation" style="margin: 100px;">
-                <div>
-                    <h2>Documentacion</h2>
-                    <ol style="list-style-position: inside; padding-top: 5px;">
+        </div>
+        <div>
+            <button type="button" onclick="addCircles()" style="border: 0.5px solid #333;
+                            padding: 12px;
+                            margin: 7px 7px;
+                            border-radius: 5px;
+                            background-color: #222;
+                            color: #fff;
+                            cursor: pointer;">Circulos</button>
 
-                        <li style="font-family: 'Roboto';
-                                font-size: 18px;
-                                width: 800px;
-                                padding: 10px 0px;">
-                            Se debe seleccionar perimero un elemento (texto, fecha, imagen) para aplicar una
-                            funcionalidad.
-                        </li>
+            <button type="button" id="undo" style="border: 0.5px solid #333;
+                            padding: 12px;
+                            margin: 7px 7px;
+                            border-radius: 5px;
+                            background-color: #222;
+                            color: #fff;
+                            cursor: pointer;">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+            <button type="button" id="redo" style="border: 0.5px solid #333;
+                            padding: 12px;
+                            margin: 7px 7px;
+                            border-radius: 5px;
+                            background-color: #222;
+                            color: #fff;
+                            cursor: pointer;">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+            <button type="button" id="btnCreateOutline" style="border: 0.5px solid #333;
+                                padding: 12px;
+                                margin-left: 7px;
+                                border-radius: 5px;
+                                background-color: #222;
+                                color: #fff;
+                                cursor: pointer;">Crear contorno
+            </button>
+            <input type="number" value="1" min="1" max="5" name="shadowSizeOfBoxes" id="numberShadows" style="border: 0.5px solid #333;
+                                                padding-bottom: 10px;
+                                                border-radius: 5px;
+                                                color: #000000;
+                                                cursor: pointer;">
 
-                        <hr>
-
-                        <li style="font-family: 'Roboto';
-                                font-size: 18px;
-                                width: 800px;
-                                padding: 10px 0px;">Los botones debajo de la funcionalidad <span style="color: black;
-                                font-weight: bold;
-                                text-decoration: dotted;">
-                                "espejo"</span> son
-                            para el sistema de
-                            capas. <br>
-                            El boton superior lleva al elemento que hayas seleccionado una capa hacia "arriba". <br>
-                            El boton inferior lleva al elemento que hayas seleccionado una capa hacia "abajo".
-                        </li>
-
-                        <hr>
-
-                        <li style="font-family: 'Roboto';
-                                font-size: 18px;
-                                width: 800px;
-                                padding: 10px 0px;">Los <span style="color: black;
-                                font-weight: bold;
-                                text-decoration: dotted;">
-                                "circulos"</span> estan especificamente añadidos para
-                            testear el sistema
-                            de capas
-                            con
-                            elementos distintos. <br>
-                            No fueron tenidos en cuenta como funcionalidad específica.
-                        </li>
-
-                        <hr>
-
-                        <li style="font-family: 'Roboto';
-                                font-size: 18px;
-                                width: 800px;
-                                padding: 10px 0px;"> Para crearle un contorno al elemento seleccionado, el
-                            tamaño del mismo va a estar establecido por el <span style="color: black;
-                                font-weight: bold;
-                                text-decoration: dotted;">
-                                input</span> y su valor
-                            correspondiente, el cual se encuentra a la derecha.
-                            <br>
-                            <br>
-                            En el canvas, se debe seleccionar el elemento vacío (sin ningun contorno), establecer un
-                            tamaño numerico y
-                            luego aplicarlo con la funcionalidad <span style="color: black;
-                                font-weight: bold;
-                                text-decoration: dotted;">
-                                "crear contorno"</span>
-                        </li>
-                    </ol>
-            </section>
         </div>
 
 
-        <!-- ******************** -->
-        <!-- TEXT CUSTOMATIZATION -->
-        <!-- ******************** -->
+        <section class="documentation" style="margin-top: 100px">
+            <div>
+                <h2>Documentacion</h2>
+                <ol style="list-style-position: inside; padding-top: 5px;">
 
-        <section class="section" id="customText" style="display:none;">
-            <div class="row">
-                <div class="col">
-                    <div class="first box">
-                        <select class="selectFont" name="fontFamily" id="fontFamily">
-                            <option class="options" value="Times New Roman" style="font-family: Times New Roman;">
-                                Times New
-                                Roman</option>
-                            <option class="options" value="Roboto" style="font-family: Roboto;">Roboto</option>
-                            <option class="options" value="Verdana" style="font-family: Verdana;">Verdana</option>
-                            <option class="options" value="Arial" style="font-family: Arial;">Arial</option>
-                            <option class="options" value="Comic Sans ms" style="font-family: Comic Sans ms;">Comic
-                                Sans ms
-                            </option>
-                        </select>
+                    <li>
+                        Se debe seleccionar perimero un elemento (texto, fecha, imagen) para aplicar una
+                        funcionalidad.
+                    </li>
 
-                    </div>
-                    <div class="second box">
-                        <input type="number" id="fontSize" value="50" min="1" max="100">
+                    <hr>
 
-                    </div>
-                    <div class="third box">
-                        <button type="button" id="align-left">
-                            <i class=" fa-solid fa-align-left"></i>
-                        </button>
-                        <button type="button" id="align-center">
-                            <i class=" fa-solid fa-align-center"></i>
-                        </button>
-                        <button type="button" id="align-right">
-                            <i class=" fa-solid fa-align-right"></i>
-                        </button>
-                    </div>
-                    <div class="fourt box">
-                        <button type="button" id="copyButton">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                    </div>
-                    <div class="five box">
-                        <button type="button">
-                            <i class="fa-regular fa-trash-can" id="trashButton"></i>
-                        </button>
-                    </div>
+                    <li>Los botones debajo de la funcionalidad <span>"espejo"</span> son
+                        para el sistema de capas. <br>
+                        El boton superior lleva al elemento que hayas seleccionado una capa hacia "arriba". <br>
+                        El boton inferior lleva al elemento que hayas seleccionado una capa hacia "abajo".
+                    </li>
+
+                    <hr>
+
+                    <li>Los <span>"circulos"</span> estan especificamente añadidos para
+                        testear el sistema de capas con
+                        elementos distintos. <br>
+                        No fueron tenidos en cuenta como funcionalidad específica.
+                    </li>
+
+                    <hr>
+
+                    <li> Para crearle un contorno al elemento seleccionado, el
+                        tamaño del mismo va a estar establecido por el <span>input</span> y su valor
+                        correspondiente, el cual se encuentra a la derecha.
+                        <br>
+                        <br>
+                        En el canvas, se debe seleccionar el elemento vacío (sin ningun contorno), establecer un
+                        tamaño numerico y luego aplicarlo con la funcionalidad <span>"crear contorno"</span>
+                    </li>
+                </ol>
+        </section>
+    </div>
+
+
+
+    <!-- ******************** -->
+    <!-- TEXT CUSTOMATIZATION -->
+    <!-- ******************** -->
+
+    <section class="section" id="customText" style="display:none;">
+        <div class="row">
+            <div class="col">
+                <div class="first box">
+                    <select class="selectFont" name="fontFamily" id="fontFamily">
+                        <option class="options" value="Times New Roman" style="font-family: Times New Roman;">
+                            Times New
+                            Roman</option>
+                        <option class="options" value="Roboto" style="font-family: Roboto;">Roboto</option>
+                        <option class="options" value="Verdana" style="font-family: Verdana;">Verdana</option>
+                        <option class="options" value="Arial" style="font-family: Arial;">Arial</option>
+                        <option class="options" value="Comic Sans ms" style="font-family: Comic Sans ms;">Comic
+                            Sans ms
+                        </option>
+                    </select>
 
                 </div>
-            </div>
-        </section>
+                <div class="second box">
+                    <input type="number" id="fontSize" value="50" min="1" max="100">
 
-    </div>
+                </div>
+                <div class="third box">
+                    <button type="button" id="align-left">
+                        <i class=" fa-solid fa-align-left"></i>
+                    </button>
+                    <button type="button" id="align-center">
+                        <i class=" fa-solid fa-align-center"></i>
+                    </button>
+                    <button type="button" id="align-right">
+                        <i class=" fa-solid fa-align-right"></i>
+                    </button>
+                </div>
+                <div class="fourt box">
+                    <button type="button" id="copyButton">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+                <div class="five box">
+                    <button type="button">
+                        <i class="fa-regular fa-trash-can" id="trashButton"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
 
     <img style="display: none; height: 15px;width: 15px; z-index: 1;" src="./src/img/oso.png" alt="oso" id="osoImage">
     <img style="display: none; height: 15px;width: 15px; z-index: 1;" src="./src/img/dije.png" alt="dije"
         id="dijeImage">
 
-    <button type="button" onclick="addCircles()" style="border: 0.5px solid #333;
-                padding: 12px;
-                margin: 7px 7px;
-                border-radius: 5px;
-                background-color: #222;
-                color: #fff;
-                cursor: pointer;">Circulos</button>
-
-    <button type="button" id="undo" style="border: 0.5px solid #333;
-                padding: 12px;
-                margin: 7px 7px;
-                border-radius: 5px;
-                background-color: #222;
-                color: #fff;
-                cursor: pointer;">
-        <i class="fa-solid fa-rotate-left"></i>
-    </button>
-    <button type="button" id="redo" style="border: 0.5px solid #333;
-                padding: 12px;
-                margin: 7px 7px;
-                border-radius: 5px;
-                background-color: #222;
-                color: #fff;
-                cursor: pointer;">
-        <i class="fa-solid fa-rotate-right"></i>
-    </button>
-    <button type="button" id="btnCreateOutline" style="border: 0.5px solid #333;
-                    padding: 12px;
-                    margin-left: 7px;
-                    border-radius: 5px;
-                    background-color: #222;
-                    color: #fff;
-                    cursor: pointer;">Crear contorno
-    </button>
-    <input type="number" value="1" min="1" max="5" name="shadowSizeOfBoxes" id="numberShadows" style="border: 0.5px solid #333;
-                                    padding-bottom: 10px;
-                                    border-radius: 5px;
-                                    color: #000000;
-                                    cursor: pointer;">
 
 
     <!--  <section class="input-image" style="margin-top: 100px;">
