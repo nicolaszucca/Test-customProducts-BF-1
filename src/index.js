@@ -15,6 +15,10 @@ const alignLeft = document.querySelector('#align-left');
 const alignCenter = document.querySelector('#align-center');
 const alignRight = document.querySelector('#align-right');
 
+const alignTopHeight = document.querySelector('#align-top-height');
+const alignCenterHeight = document.querySelector('#align-center-height');
+const alignBottomHeight = document.querySelector('#align-bottom-height');
+
 const mirrorEffect = document.querySelector('#btnMirrorEfect');
 
 const trashButton = document.querySelector('#trashButton');
@@ -28,7 +32,7 @@ const redoButton = document.querySelector('#redo');
 
 const inputimage = document.querySelector('#input-image');
 
-//image 
+//image
 const oso = document.querySelector('#osoImage');
 const dije = document.querySelector('#dijeImage');
 
@@ -38,7 +42,7 @@ const canvas = new fabric.Canvas('canvas');
 const center = canvas.getCenter();
 
 (function init() {
-    canvas.setBackgroundImage(/* './src/img/desktop-wallpaper-black-and-white-anime-boy-black-and-white-cartoon.jpg' */'', canvas.renderAll.bind(canvas), {
+    canvas.setBackgroundImage('', canvas.renderAll.bind(canvas), {
 
         scaleX: 1,
         scaleY: 1,
@@ -68,12 +72,37 @@ const center = canvas.getCenter();
         backgroundColor: 'transparent',
     }));
 
-    canvas.add(new fabric.Image(dije, {
+    /* canvas.add(new fabric.Image(dije, {
         left: 400,
         top: 0,
         angle: 0,
         backgroundColor: 'transparent',
-    }));
+    })); */
+    const text = new fabric.IText('NICOLAS', {
+        left: 50,
+        top: 50,
+        fill: 'black',
+        selectionLineWidth: 20,
+        fontSize: 70,
+        //fontWeight: 'bold',
+    });
+
+    const text2 = new fabric.IText('NICOLAS', {
+        left: 50,
+        top: 50,
+        fill: 'red',
+
+        stroke: 'red',
+        strokeLineJoin: 'round',
+        strokeWidth: 5,
+        strokeUniform: true,
+
+        fontSize: 70,
+        //fontWeight: 'bold',
+
+    });
+    canvas.add(text2)
+    canvas.add(text)
 })()
 
 let key = true;
@@ -96,6 +125,7 @@ canvas.on({
 
             canvas.renderAll();
         }
+        getDimensionsInCm()
     },
 
     'text:editing:entered': (opt) => {
@@ -123,6 +153,7 @@ canvas.on({
     },
     'object:moving': (opt) => {
         //muevo un obj
+        setLimitsObjects(opt.target)
         customText.style.display = 'none';
     },
     'object:modified': (opt) => {
@@ -140,6 +171,50 @@ canvas.on({
 })
 
 
+function getDimensionsInCm() {
+    var activeObject = canvas.getActiveObject();
+
+    if (activeObject) {
+        var widthInPx = activeObject.getScaledWidth();
+        var heightInPx = activeObject.getScaledHeight();
+
+        // Obtener la relación entre los píxeles en el lienzo y los centímetros del mundo real
+        var cmPerPixel = 1 / canvas.getZoom();
+
+        var widthInCm = widthInPx * cmPerPixel;
+        var heightInCm = heightInPx * cmPerPixel;
+
+        console.log("pixelsW in cm", (widthInPx / 37.795280352161).toFixed(2));
+
+        console.log("pixelsH in cm", (heightInPx / 37.795280352161).toFixed(2));
+        // console.log("Altura: " + heightInCm.toFixed(2) + " cm");
+    }
+}
+
+
+
+function setLimitsObjects(obj) {
+
+    obj.setCoords();
+    let curZoom = obj.canvas.getZoom();
+
+    // if object is too big ignore
+    if (obj.getScaledHeight() > obj.canvas.height || obj.getScaledWidth() > obj.canvas.width) {
+        return;
+    }
+
+    // top-left  corner
+    if (obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0) {
+        obj.top = Math.max(obj.top * curZoom, obj.top * curZoom - obj.getBoundingRect().top) / curZoom;
+        obj.left = Math.max(obj.left * curZoom, obj.left * curZoom - obj.getBoundingRect().left) / curZoom;
+    }
+    // bot-right corner
+    if (obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height || obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
+        obj.top = Math.min(obj.top * curZoom, obj.canvas.height - obj.getBoundingRect().height + obj.top * curZoom - obj.getBoundingRect().top) / curZoom;
+        obj.left = Math.min(obj.left * curZoom, obj.canvas.width - obj.getBoundingRect().width + obj.left * curZoom - obj.getBoundingRect().left) / curZoom;
+    }
+}
+
 function clearText(e) {
     if (e.target.type === "textbox") {
         if (e.target.text === "Ingrese texto") {
@@ -154,12 +229,12 @@ function addText(x = 75, y = 430, pos = 325) {
     const text = new fabric.IText('Ingrese texto', { //NOTE: fabric.Text / .Textbox
         left: x,
         top: y,
-        width: 320,
+        //width: 320,
         customType: 'textbox',
         fontSize: 50,
         fontFamily: 'Times New Roman',
-        scaleX: 0.90,
-        scaleY: 0.90,
+        // scaleX: 0.90,
+        // scaleY: 0.90,
 
         editable: true,
 
@@ -331,6 +406,64 @@ selectFamily.onchange = function () {
 
 //TODO: Se puede optimizar en una function con un switch-case.
 //NOTE: https://stackoverflow.com/questions/47408816/object-alignment-in-fabric-js
+
+alignTopHeight.addEventListener('click', (e) => {
+    const object = canvas.getActiveObject();
+
+    if (object.type === 'activeSelection') {
+        let height = object.getBoundingRect(true).height;
+        let objects = canvas.getActiveObjects();
+
+        objects.forEach(element => {
+
+            element.set({
+                top: (-height / 2),
+            });
+
+        })
+        canvas.renderAll();
+    }
+})
+
+alignCenterHeight.addEventListener('click', (e) => {
+
+    const object = canvas.getActiveObject();
+
+    if (object.type === 'activeSelection') {
+        let objects = canvas.getActiveObjects();
+
+        objects.forEach(element => {
+            let itemHeight = element.getBoundingRect(true).height
+            element.set({
+                top: (0 - itemHeight / 2),
+            });
+
+        })
+        canvas.renderAll();
+    }
+})
+
+alignBottomHeight.addEventListener('click', (e) => {
+    const object = canvas.getActiveObject();
+
+    if (object.type === 'activeSelection') {
+        let height = object.getBoundingRect(true).height;
+        let objects = canvas.getActiveObjects();
+
+        objects.forEach(element => {
+            let itemHeight = element.getBoundingRect(true).height
+            element.set({
+                top: (height / 2 - itemHeight),
+            });
+        })
+        canvas.renderAll();
+    }
+})
+
+
+
+
+
 alignLeft.addEventListener('click', (e) => {
     console.log("ALIGN LEFT");
     const object = canvas.getActiveObject();
@@ -578,9 +711,11 @@ function createDate(text = '01/01/2000', shadow = '', fontFamily = 'Times New Ro
         width: 120,
         fontFamily: fontFamily,
         fill: 'black',
-        stroke: '#fff',
-        strokeWidth: 0,
-        shadow: shadow,
+        stroke: 'red',
+        strokeWidth: 3,
+        strokeLineCap: 'round',
+        strokeLineJoin: 'round',
+        //shadow: shadow,
         customType: 'datebox',
 
         fontSize: fontSize,
