@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personalizacion de productos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/newStyles.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="shortcut icon" href="./src/img/crea-laser-ico.jpg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e6989afcf9.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="./src/img/crea-laser-ico.jpg" alt="creaLaser" class="logo">
+            <h3>Crea laser</h3>
+        </div>
+        <nav>
+            <ul>
+                <li>Nosotros</li>
+                <li>Productos</li>
+                <li>Contacto</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+
+        <!-- works model presentation (work examples) & search works input -->
+        <section class="container-models-section">
+            <!-- toolbar input search  -->
+            <div class="container-search-input tool-bar-main">
+                <div style="position: relative; width: 60%;">
+                    <input type="search" name="search" id="input-search" placeholder="Buscar">
+                    <span id="input-search-cancel-btn">x</span>
+
+                </div>
+
+            </div>
+
+            <!-- TODO: past works presentations (cards) -->
+            <div class="container-work-models hero">
+
+                <div class="proyect-cards">
+                    <div class="card" draggable="true"> <!-- call the api for proyects-->
+
+                        <img src="./img/ImageTest (1).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card" draggable="true">
+                        <img src="./img/ImageTest (2).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                    <div class="card" draggable="true">
+
+                        <img src="./img/ImageTest (3).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                    <div class="card" draggable="true">
+
+                        <img src="./img/ImageTest (4).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                    <div class="card" draggable="true">
+
+                        <img src="./img/ImageTest (5).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                    <div class="card" draggable="true">
+
+                        <img src="./img/ImageTest (1).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                    <div class="card" draggable="true">
+
+                        <img src="./img/ImageTest (2).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                    <div class="card" draggable="true">
+
+                        <img src="./img/ImageTest (3).jpeg" alt="proyecto">
+
+                        <div class="card-data">
+                            <h4>Title</h4>
+                            <p>Una descripcion que describa la imagen/proyecto</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- canvas & canva's tools (right side bar and above canvas bar) -->
+        <section class="container-design-section">
+
+            <div class="canvas-tools-container">
+
+                <!-- toolbar tools above canvas -->
+                <div class="basic-tools-above-canvas tool-bar-main">
+
+
+
+                    <!-- undo redo icons -->
+                    <div style="display:flex;">
+                        <!-- undo -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <img src="./src/img/undo-svgrepo-com.svg" title="Deshacer" alt="deshacer" height="22px"
+                                width="22px">
+                        </div>
+                        <!-- redo -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <img src="./src/img/redo-svgrepo-com.svg" title="Rehacer" alt="rehacer" height="22px"
+                                width="22px">
+                        </div>
+                    </div>
+
+
+                    <span class="divider top-dividers"></span>
+
+
+                    <!-- create text & insert image icons  -->
+                    <div style="display:flex;">
+                        <!-- create text -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <img src="./src/img/text-style-svgrepo-com.svg" title="Crear texto" alt="crear texto"
+                                height="22px" width="22px">
+                        </div>
+                        <!-- insert image -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <i height="22px" width="22px" title="Insertar imagen" class="fa-regular fa-image"
+                                style="color: #000000;"></i>
+                        </div>
+                    </div>
+
+
+                    <span class="divider top-dividers"></span>
+
+
+                    <!-- flip horizontal, vertical / rotate left, rotate right -->
+                    <div style="display:flex;">
+                        <!-- flip horizontal -->
+                        <div class="icon-container-toolbar" title="Flip horizontal"
+                            style="display:flex;align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#000" width="22"
+                                height="22" transform="matrix(-1, 0, 0, 1, 0, 0)">
+                                <path
+                                    d="M 8 1 L 8 13 L 14 13 L 8 1 z M 7 1.0058594 L 1.0078125 13 L 7 13 L 7 1.0058594 z M 6 5.2441406 L 6 12 L 2.6230469 12 L 6 5.2441406 z">
+                                </path>
+                            </svg>
+                        </div>
+                        <!-- flip vertical -->
+                        <div class="icon-container-toolbar" title="Flip vertical"
+                            style="display:flex;align-items: center;">
+                            <svg style="transform: rotate(90deg);" xmlns=" http://www.w3.org/2000/svg"
+                                viewBox="0 0 16 16" fill="#000" width="22" height="22"
+                                transform="matrix(-1, 0, 0, 1, 0, 0)">
+                                <path
+                                    d="M 8 1 L 8 13 L 14 13 L 8 1 z M 7 1.0058594 L 1.0078125 13 L 7 13 L 7 1.0058594 z M 6 5.2441406 L 6 12 L 2.6230469 12 L 6 5.2441406 z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <!-- clone object  -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <i height="22px" width="22px" title="Clonar" class="fa-regular fa-clone"
+                                style="color: #000000;"></i>
+                        </div>
+
+                        <!-- rotate left  -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <i height="22px" width="22px" title="Rotar izquierda" class="fa-solid fa-rotate-left"
+                                style="color: #000000;"></i>
+                        </div>
+                        <!-- rotate right  -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <i height="22px" width="22px" title="Rotar derecha" class="fa-solid fa-rotate-right"
+                                style="color: #000000;"></i>
+                        </div>
+                    </div>
+
+
+                    <span class="divider top-dividers"></span>
+
+
+                    <!-- group & ungroup icons -->
+                    <div style="display:flex;">
+                        <!-- group icon -->
+                        <div class="icon-container-toolbar" title="Agrupar items"
+                            style="display:flex;align-items: center;">
+                            <img src="./src/img/group-items-svgrepo-com.svg" alt="Agrupar items" height="22px"
+                                width="22px">
+                        </div>
+                        <!-- ungroup icon -->
+                        <div class="icon-container-toolbar" title="Desagrupar items"
+                            style="display:flex;align-items: center;">
+                            <img src="./src/img/ungroup-items-svgrepo-com.svg" alt="Desagrupar items" height="22px"
+                                width="22px">
+                        </div>
+                    </div>
+
+
+                    <span class="divider top-dividers"></span>
+
+
+                    <!-- layer sistem: bring to front & send to back icons  -->
+                    <div style="display:flex;">
+                        <!-- bring to front  -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;"">
+                            <img src=" ./src/img/bring-to-front-svgrepo-com.svg" title="Traer al frente" height="22px"
+                            width="22px" alt="Bring to front">
+                        </div>
+                        <!-- send to back -->
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <img src="./src/img/send-to-back-svgrepo-com.svg" title="Enviar atras" height="22px"
+                                width="22px" alt="Send to back">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- canvas -->
+                <div class="canvas-container" id="canvas-container">
+                    <canvas id="canvas" style="border: 0.5px solid #c3c3c398;">
+                    </canvas>
+                </div>
+
+
+                <!-- canvas right tools (appearance, design, font[family-size-weight])-->
+                <div id="right-sidebar" class="canvas-tools">
+                    <!-- elements position  -->
+                    <div class="tool-bar-main">
+
+                        <div class="toolbar-btns" title="Alinear a la izquierda" data-title="align-left">
+                            <svg class="align-svg" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+                                viewBox="53 2 20 20" width="20" height="20">
+                                <rect id="align-area" x="62" y="9" width="4" height="12" transform="rotate(-90 64 15)"
+                                    fill="#000"></rect>
+                                <rect id="align-area" x="60" y="5" width="4" height="8" transform="rotate(-90 62 9)"
+                                    fill="#000"></rect>
+                                <rect id="align-shape" x="54" y="3" width="2" height="18" transform="rotate(-180 55 12)"
+                                    fill="#2d2d2d"></rect>
+                            </svg>
+                        </div>
+
+                        <div class="toolbar-btns" title="Alinear al centro" data-title="align-center">
+                            <svg class="align-svg" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+                                viewBox="77 2 20 20" width="20" height="20">
+                                <rect id="align-shape" x="86" y="3" width="2" height="18" transform="rotate(180 87 12)"
+                                    fill="#2d2d2d"></rect>
+                                <rect id="align-area" x="85" y="3" width="4" height="12" transform="rotate(90 87 9)"
+                                    fill="#000"></rect>
+                                <rect id="align-area" x="85" y="11" width="4" height="8" transform="rotate(90 87 15)"
+                                    fill="#000"></rect>
+                            </svg>
+                        </div>
+
+                        <div class="toolbar-btns" title="Alinear a la derecha" data-title="align-right">
+                            <svg class="align-svg" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+                                viewBox="103 2 20 20" width="20" height="20">
+                                <rect id="align-area" x="110" y="9" width="4" height="12" transform="rotate(90 112 15)"
+                                    fill="#000"></rect>
+                                <rect id="align-area" x="112" y="5" width="4" height="8" transform="rotate(90 114 9)"
+                                    fill="#000"></rect>
+                                <rect id="align-shape" x="120" y="3" width="2" height="18"
+                                    transform="rotate(180 121 12)" fill="#2d2d2d"></rect>
+                            </svg>
+                        </div>
+
+                        <span class="divider"></span>
+
+                        <div class="toolbar-btns" title="Alinear arriba" data-title="align-top">
+                            <svg class="align-svg" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+                                viewBox="128 2 20 20" width="20" height="20">
+                                <rect id="align-area" x="133" y="7" width="4" height="12" fill="#000"></rect>
+                                <rect id="align-area" x="139" y="7" width="4" height="8" fill="#000"></rect>
+                                <rect id="align-shape" x="137" y="-5" width="2" height="18"
+                                    transform="rotate(-90 138 4)" fill="#2d2d2d"></rect>
+                            </svg>
+                        </div>
+                        <div class="toolbar-btns" title="Alinear al medio" data-title="align-middle">
+                            <svg class="align-svg" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+                                viewBox="156 1.9999999999999982 20 20" width="20" height="20">
+                                <rect id="align-shape" x="165" y="3" width="2" height="18" transform="rotate(90 166 12)"
+                                    fill="#2d2d2d"></rect>
+                                <rect id="align-area" x="161" y="6" width="4" height="12"
+                                    transform="rotate(-180 163 12)" fill="#000"></rect>
+                                <rect id="align-area" x="167" y="8" width="4" height="8" transform="rotate(-180 169 12)"
+                                    fill="#000"></rect>
+                            </svg>
+                        </div>
+                        <div class="toolbar-btns" title="Alinear abajo" data-title="align-bottom">
+                            <svg class="align-svg" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate"
+                                viewBox="181 2 20 20" width="20" height="20">
+                                <rect id="align-area" x="186" y="5" width="4" height="12" transform="rotate(180 188 11)"
+                                    fill="#000"></rect>
+                                <rect id="align-area" x="192" y="9" width="4" height="8" transform="rotate(180 194 13)"
+                                    fill="#000"></rect>
+                                <rect id="align-shape" x="190" y="11" width="2" height="18"
+                                    transform="rotate(-90 191 20)" fill="#2d2d2d"></rect>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- data of postition elements -->
+                    <div class="properties-panel-dimensions">
+
+                        <!-- position X - Y -->
+                        <div class="property-row">
+                            <label>
+                                <span>Posición</span>
+                            </label>
+                            <div class="columns">
+                                <div class="column" style="width: 40%;">
+                                    <div class="content">
+                                        <span>X</span>
+                                        <input type="text" title="Posicion del elemento" data-dimension="x"
+                                            draggable="false" name="positionX-value" id="input-positionX">
+                                    </div>
+                                </div>
+
+                                <div class="column" style="width: 40%;">
+                                    <div class="content">
+                                        <span>Y</span>
+                                        <input type="text" title="Posicion del elemento" data-dimension="y"
+                                            draggable="false" name="positionY-value" id="input-positionY">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- size width - height -->
+                        <div class="property-row">
+                            <label>
+                                <span>Tamaño</span>
+                            </label>
+                            <div class="columns">
+                                <div class="column" style="width: 40%;">
+                                    <div class="content">
+                                        <span>W</span>
+                                        <input type="text" title="Tamaño del elemento (ancho)" data-dimension="w"
+                                            draggable="false" name="size-w-element" id="input-sizeW">
+                                    </div>
+                                </div>
+
+                                <div class="column" style="width: 40%;">
+                                    <div class="content">
+                                        <span>H</span>
+                                        <input type="text" title="Tamaño del elemento (alto)" data-dimension="h"
+                                            draggable="false" name="size-h-element" id="input-sizeH">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- rotation angle -->
+                        <div class="property-row">
+                            <label>
+                                <span>Ángulo</span>
+                            </label>
+                            <div class="columns">
+                                <div class="column" style="width: 40%;">
+                                    <div class="content">
+                                        <span>R</span>
+                                        <input type="text" title="Rotacion" data-dimension="r" draggable="false"
+                                            name="rotation-element" id="input-rotation">
+                                    </div>
+                                </div>
+
+                                <div class="column" style="width: 40%; visibility: hidden;">
+                                    <div class="content">
+                                        <span></span>
+                                        <input type="text" title="" data-dimension="null" draggable="false" name=""
+                                            id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- appearance tools -->
+                    <div class="toolbar-appearance-panel primaries-zone">
+                        <label class=" appearance-title">Apariencia
+                        </label>
+                        <div class="appearance-toolbar-btn">
+                            <i class="fa-solid fa-sort-down"></i>
+                        </div>
+                    </div>
+
+                    <!-- text appearance tools (toggle display) -->
+                    <div>
+                        <!-- text appearance  -->
+                        <div class="text-appearance" style="border-bottom: .2px solid #c3c3c3;">
+
+                            <!-- decoration font-family-->
+                            <div class="property-row">
+                                <label>
+                                    <span>Fuente</span>
+                                </label>
+                                <div class="columns">
+                                    <div class="column" style="width: 90%;">
+                                        <div class="content">
+                                            <select name="select-change-font" id="select-change-font" draggable="false">
+                                                <option style="font-family: Comic Sans;">Open Sans</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- "styles -> weight" and "size" inputs[options] -->
+                            <div class="property-row" style="margin-bottom: 0;">
+                                <label>
+                                    <span>Estilos</span>
+                                </label>
+
+                                <div class="columns">
+                                    <div class="column" style="width: 50%;">
+                                        <div class="content">
+                                            <select type="text" draggable="false" name="input-type-font" id="type-font">
+                                                <option>Regular</option>
+                                                <option>Light</option>
+                                                <option>Bold</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="column" style="width: 30%;">
+                                        <div class="content">
+                                            <select type="text" draggable="false" name="input-size-font" id="size-font">
+                                                <option>15</option>
+                                                <option>18</option>
+                                                <option>24</option>
+                                                <option>32</option>
+                                                <option>38</option>
+                                                <option>42</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- "weight" and "size" tags under the input[options]-->
+                            <div class="property-row" style="margin: 0px;">
+                                <label style="visibility: hidden;">
+                                    <span></span>
+                                </label>
+                                <div class="columns">
+                                    <div class="column" style="width: 40%;">
+                                        <div class="content">
+                                            <span>Peso</span>
+                                        </div>
+                                    </div>
+                                    <div class="column" style="width: 25%;">
+                                        <div class="content">
+                                            <span>Tamaño</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!-- decoration font weight, italic, underline, strikethrough -->
+                            <div class="property-row text-decoration-tool">
+                                <label>
+                                    <span>Decoración</span>
+                                </label>
+                                <div class="columns">
+                                    <div class="column" style="width: 40%;">
+                                        <div class="content">
+                                            <i title="Bold" class="fa-solid fa-bold" style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="column" style="width: 40%;">
+                                        <div class="content">
+                                            <i title="Cursiva" class="fa-solid fa-italic" style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="column" style="width: 40%;">
+                                        <div class="content">
+                                            <i title="Subrayado" class="fa-solid fa-underline"
+                                                style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="column" style="width: 40%;">
+                                        <div class="content">
+                                            <i title="Tachado" class="fa-solid fa-strikethrough"
+                                                style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!-- decoration font alignment, left, right,center, justify -->
+                            <!-- spacing chars & line height values -->
+                            <div>
+                                <!-- decoration font alignment, left, right,center, justify -->
+                                <div class="property-row text-alignment-tool">
+                                    <!-- <div class="text-decoration-tool"> -->
+                                    <label>
+                                        <span>Alinear</span>
+                                    </label>
+                                    <div class="columns">
+                                        <div class="column" style="width: 40%;">
+                                            <div class="content">
+                                                <i title="Alinear a la izquierda" class="fa-solid fa-align-left"
+                                                    style="color: #000000;"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="column" style="width: 40%;">
+                                            <div class="content">
+                                                <i title="Alinear al centro" class="fa-solid fa-align-center"
+                                                    style="color: #000000;"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="column" style="width: 40%;">
+                                            <div class="content">
+                                                <i title="Alinear a la derecha" class="fa-solid fa-align-right"
+                                                    style="color: #000000;"></i>
+                                            </div>
+                                        </div>
+                                        <div class="column" style="width: 40%;">
+                                            <div class="content">
+                                                <i title="Alinear justificado" class="fa-solid fa-align-justify"
+                                                    style="color: #000000;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+
+                                <!-- spacing chars & line height values -->
+                                <div>
+                                    <div class="property-row" style="margin: 5px 0px 0px 0px">
+                                        <label>
+                                            <span>Espaciado</span>
+                                        </label>
+                                        <div class="columns">
+                                            <!-- spacing chars -->
+                                            <div class="column" style="width: 40%;">
+                                                <div class="content">
+                                                    <input type="text" value="1" title="Espaciado de caracteres"
+                                                        draggable="false" name="char-spacing" id="char-spacing-input">
+                                                </div>
+                                            </div>
+                                            <!-- line height -->
+                                            <div class="column" style="width: 40%;">
+                                                <div class="content">
+                                                    <input type="text" value="1" title="Altura de linea"
+                                                        draggable="false" name="line-height" id="line-height-input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="property-row" style="margin: 0">
+                                        <label style="visibility: hidden;">
+                                            <span></span>
+                                        </label>
+                                        <div class="columns">
+                                            <div class="column" style="width: 30%;">
+                                                <div class="content">
+                                                    <span>Caracter</span>
+                                                </div>
+                                            </div>
+                                            <div class="column" style="width: 20%;">
+                                                <div class="content">
+                                                    <span>Linea</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- appearance panel buttons imgs & opacity range input -->
+                        <div class="propierties-panel-appearance" style="display: none;">
+
+                            <!-- principal buttons of appearance  -->
+                            <div class=" image-buttons-functionalities">
+                                <div class="columns">
+                                    <div class=" column">
+                                        <div class="content">
+                                            <i title="Reemplazar imagen" class="fa-regular fa-images"
+                                                style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="content">
+                                            <i title="Tamaño original" class="fa-solid fa-maximize"
+                                                style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="content">
+                                            <i title="Cortar imagen" class="fa-solid fa-crop-simple"
+                                                style="color: #000000;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column">
+                                        <div class="content">
+                                            <span>Cambiar imagen</span>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="content">
+                                            <span>Tamaño orig.</span>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="content">
+                                            <span>Cortar imagen</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- opacity range value -->
+                            <div class="property-row">
+                                <label><span>Opacidad</span></label>
+
+                                <div class="columns" style="margin-left: 0; justify-content:center; width: 90%; ">
+                                    <div class="column" style="width: 50%;">
+                                        <div class="content">
+                                            <input type="range" name="range" class="gradient-range" value="100" min="0"
+                                                max="100">
+                                        </div>
+                                    </div>
+
+                                    <div class="column">
+                                        <div class="content">
+                                            <input type="text" draggable="false" value="100%" name="range-value"
+                                                id="input-range-value">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="border-panel">
+                        <div class="toolbar-border-panel primaries-zone">
+                            <label class="appearance-title">Bordes
+                            </label>
+                            <div class="appearance-toolbar-btn">
+                                <i class="fa-solid fa-sort-down"></i>
+                            </div>
+                        </div>
+
+
+                        <div class="property-row" style="display: none;">
+
+                            <input type="color" name="border-color" id="border-color" title="Color">
+                            <input type="number" value="0" title="valor de borde" draggable="false" name="border-value"
+                                id="border-value-input">
+                            <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="rounded-panel-propperties">
+                        <div class="toolbar-border-panel primaries-zone">
+                            <label class="appearance-title">Redondear
+                            </label>
+                            <div class="appearance-toolbar-btn">
+                                <i class="fa-solid fa-sort-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/521/fabric.js"
+        integrity="sha512-H2reaY28wpUIX1EKG6WufGHYG/BWvZUfweOdvFB/gW9kh9YSKB9EklGSlIB+XdL0bgavEbp4l+UjQR/mLJwdMg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- resize responsive canvas  -->
+    <script>
+        const canvas = new fabric.Canvas('canvas');
+        const canvasContainer = document.getElementById('canvas-container');
+
+        window.onload = function onloadSizeCanvas() {
+
+            const containerWidth = (canvasContainer.clientWidth) - 20; //ancho del container-canvas 
+            const containerHeigt = (canvasContainer.clientHeight) - 20; //altura del container-canvas 
+
+            canvas.setDimensions({ width: containerWidth, height: containerHeigt });
+        }
+
+        window.onresize = function resizeCanvas() {
+
+            const containerWidth = (canvasContainer.clientWidth) - 20; //ancho del container-canvas 
+            const containerHeigt = (canvasContainer.clientHeight) - 20; //altura del container-canvas 
+            /*
+                        // const scale = containerWidth / canvas.width;
+                        // const zoom = canvas.getZoom() * scale;
+                        //canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
+            */
+            canvas.setDimensions({ width: containerWidth, height: containerHeigt });
+        }
+
+    </script>
+
+    <!-- input search show "x" (cancel btn) when input.value = '' -->
+    <script>
+        const inputSearch = document.querySelector('#input-search');
+        const cancelBtnInputSearch = document.querySelector('#input-search-cancel-btn');
+
+        inputSearch.addEventListener('input', e => {
+            const value = inputSearch.value;
+
+            if (!value) {
+                cancelBtnInputSearch.style.display = 'none';
+            } else {
+                cancelBtnInputSearch.style.display = 'inline';
+            }
+        })
+
+    </script>
+
+    <!-- Script ->  Input type="range" opacity in appearance panel -->
+    <script>
+        /* ********************************************** */
+        /*  input type="range" opacity in appearance panel*/
+        /* ********************************************** */
+        const colorStopMap = {
+            orange0: 0,
+            orange1: 5,
+            orange2: 10,
+            orange3: 20,
+            orange4: 50,
+            orange5: 60
+        }
+        let gradientRange = document.querySelector(".gradient-range")
+        gradientRange.classList.add(Object.entries(colorStopMap)[4][0])
+        gradientRange.addEventListener("input", () => {
+            for (const colorStop of Object.entries(colorStopMap)) {
+                let [colorClass, colorStopValue] = colorStop
+                if (Number(gradientRange.value) >= colorStopValue) {
+                    gradientRange.classList.add(colorClass)
+                } else {
+                    gradientRange.classList.remove(colorClass)
+                }
+            }
+        })
+    </script>
+
+    <!-- fonts -->
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Roboto']
+            }
+        });
+    </script>
+</body>
+
+</html>
