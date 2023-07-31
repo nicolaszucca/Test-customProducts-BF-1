@@ -1,0 +1,74 @@
+/* Reset box model and remove margins, padding, and border */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+a,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+img,
+form,
+input,
+textarea,
+table,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Reset font properties */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+hr {
+    width: 90%;
+    border: #dadada .5px solid;
+}
+
+/* Reset lists styles */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Reset anchor text decoration */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reset form elements styles */
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Additional resets for specific elements can be added as needed */
+
+/* Set a default background color or any other global styles */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
