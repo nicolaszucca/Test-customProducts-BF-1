@@ -765,32 +765,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-    <!-- resize responsive canvas  -->
-    <script>º
-        const canvas = new fabric.Canvas('canvas');
-        const canvasContainer = document.getElementById('canvas-container');
-
-        window.onload = function onloadSizeCanvas() {
-
-            const containerWidth = (canvasContainer.clientWidth) - 20; //ancho del container-canvas 
-            const containerHeigt = (canvasContainer.clientHeight) - 20; //altura del container-canvas 
-
-            canvas.setDimensions({ width: containerWidth, height: containerHeigt });
-        }
-
-        window.onresize = function resizeCanvas() {
-
-            const containerWidth = (canvasContainer.clientWidth) - 20; //ancho del container-canvas 
-            const containerHeigt = (canvasContainer.clientHeight) - 20; //altura del container-canvas 
-            /*
-                        // const scale = containerWidth / canvas.width;
-                        // const zoom = canvas.getZoom() * scale;
-                        //canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
-            */
-            canvas.setDimensions({ width: containerWidth, height: containerHeigt });
-        }
-
-    </script>
+    <script src="./src/js/canvas.size.js"></script>
 
     <!-- input search show "x" (cancel btn) when input.value = '' -->
     <script>
