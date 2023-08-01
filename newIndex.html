@@ -146,12 +146,12 @@
                         <!-- undo -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
                             <img src="./src/img/undo-svgrepo-com.svg" title="Deshacer" alt="deshacer" height="22px"
-                                width="22px">
+                                width="22px" id="undo-icon">
                         </div>
                         <!-- redo -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
                             <img src="./src/img/redo-svgrepo-com.svg" title="Rehacer" alt="rehacer" height="22px"
-                                width="22px">
+                                width="22px" id="redo-icon">
                         </div>
                     </div>
 
@@ -163,13 +163,13 @@
                     <div style="display:flex;">
                         <!-- create text -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
-                            <img src="./src/img/text-style-svgrepo-com.svg" title="Crear texto" alt="crear texto"
-                                height="22px" width="22px">
+                            <img src="./src/img/text-style-svgrepo-com.svg" id="create-text-icon" title="Crear texto"
+                                alt="crear texto" height="22px" width="22px">
                         </div>
                         <!-- insert image -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
-                            <i height="22px" width="22px" title="Insertar imagen" class="fa-regular fa-image"
-                                style="color: #000000;"></i>
+                            <i height="22px" width="22px" id="insert-image-icon" title="Insertar imagen"
+                                class="fa-regular fa-image" style="color: #000000;"></i>
                         </div>
                     </div>
 
@@ -182,8 +182,8 @@
                         <!-- flip horizontal -->
                         <div class="icon-container-toolbar" title="Flip horizontal"
                             style="display:flex;align-items: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#000" width="22"
-                                height="22" transform="matrix(-1, 0, 0, 1, 0, 0)">
+                            <svg id="flipX-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#000"
+                                width="22" height="22" transform="matrix(-1, 0, 0, 1, 0, 0)">
                                 <path
                                     d="M 8 1 L 8 13 L 14 13 L 8 1 z M 7 1.0058594 L 1.0078125 13 L 7 13 L 7 1.0058594 z M 6 5.2441406 L 6 12 L 2.6230469 12 L 6 5.2441406 z">
                                 </path>
@@ -192,7 +192,7 @@
                         <!-- flip vertical -->
                         <div class="icon-container-toolbar" title="Flip vertical"
                             style="display:flex;align-items: center;">
-                            <svg style="transform: rotate(90deg);" xmlns=" http://www.w3.org/2000/svg"
+                            <svg id="flipY-icon" style="transform: rotate(90deg);" xmlns=" http://www.w3.org/2000/svg"
                                 viewBox="0 0 16 16" fill="#000" width="22" height="22"
                                 transform="matrix(-1, 0, 0, 1, 0, 0)">
                                 <path
@@ -203,19 +203,19 @@
 
                         <!-- clone object  -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
-                            <i height="22px" width="22px" title="Clonar" class="fa-regular fa-clone"
+                            <i height="22px" width="22px" id="clone-icon" title="Clonar" class="fa-regular fa-clone"
                                 style="color: #000000;"></i>
                         </div>
 
                         <!-- rotate left  -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
-                            <i height="22px" width="22px" title="Rotar izquierda" class="fa-solid fa-rotate-left"
-                                style="color: #000000;"></i>
+                            <i height="22px" width="22px" id="rotate-left-icon" title="Rotar izquierda"
+                                class="fa-solid fa-rotate-left" style="color: #000000;"></i>
                         </div>
                         <!-- rotate right  -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
-                            <i height="22px" width="22px" title="Rotar derecha" class="fa-solid fa-rotate-right"
-                                style="color: #000000;"></i>
+                            <i height="22px" width="22px" id="rotate-right-icon" title="Rotar derecha"
+                                class="fa-solid fa-rotate-right" style="color: #000000;"></i>
                         </div>
                     </div>
 
@@ -226,16 +226,14 @@
                     <!-- group & ungroup icons -->
                     <div style="display:flex;">
                         <!-- group icon -->
-                        <div class="icon-container-toolbar" title="Agrupar items"
-                            style="display:flex;align-items: center;">
-                            <img src="./src/img/group-items-svgrepo-com.svg" alt="Agrupar items" height="22px"
-                                width="22px">
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <img src="./src/img/group-items-svgrepo-com.svg" id="group-icon" title="Agrupar items"
+                                alt="Agrupar items" height="22px" width="22px">
                         </div>
                         <!-- ungroup icon -->
-                        <div class="icon-container-toolbar" title="Desagrupar items"
-                            style="display:flex;align-items: center;">
-                            <img src="./src/img/ungroup-items-svgrepo-com.svg" alt="Desagrupar items" height="22px"
-                                width="22px">
+                        <div class="icon-container-toolbar" style="display:flex;align-items: center;">
+                            <img src="./src/img/ungroup-items-svgrepo-com.svg" id="ungroup-icon"
+                                title="Desagrupar items" alt="Desagrupar items" height="22px" width="22px">
                         </div>
                     </div>
 
@@ -247,13 +245,13 @@
                     <div style="display:flex;">
                         <!-- bring to front  -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;"">
-                            <img src=" ./src/img/bring-to-front-svgrepo-com.svg" title="Traer al frente" height="22px"
-                            width="22px" alt="Bring to front">
+                            <img src=" ./src/img/bring-to-front-svgrepo-com.svg" id="bring-to-front-icon"
+                            title="Traer al frente" height="22px" width="22px" alt="Bring to front">
                         </div>
                         <!-- send to back -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;">
-                            <img src="./src/img/send-to-back-svgrepo-com.svg" title="Enviar atras" height="22px"
-                                width="22px" alt="Send to back">
+                            <img src="./src/img/send-to-back-svgrepo-com.svg" id="send-to-back-icon"
+                                title="Enviar atras" height="22px" width="22px" alt="Send to back">
                         </div>
                     </div>
 
@@ -265,7 +263,7 @@
                         <!-- delete (trash) icon  -->
                         <div class="icon-container-toolbar" style="display:flex;align-items: center;"">
                             <i height=" 22px" width="22px" title="Eliminar" class="fa-solid fa-trash-can"
-                            style="color: #FE6603;" id="trash-icon"></i>
+                            style="color: #FE6603;" id="delete-icon"></i>
                         </div>
                     </div>
                 </div>
@@ -768,7 +766,7 @@
 
 
     <!-- resize responsive canvas  -->
-    <script>
+    <script>º
         const canvas = new fabric.Canvas('canvas');
         const canvasContainer = document.getElementById('canvas-container');
 
