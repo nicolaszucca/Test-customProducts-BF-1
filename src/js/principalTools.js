@@ -292,6 +292,18 @@ deleteIcon.addEventListener('click', e => {
 
     return deleteObject(object);
 })
+document.addEventListener('keydown', (e) => {
+    const object = canvas.getActiveObject();
+
+    //key: supr
+    if (e.key != 'Delete' || !object) { return }
+
+    if (e.key === 'Delete' && object.type === 'activeSelection') {
+        return deleteObjects(object._objects);
+    }
+
+    return deleteObject(object);
+})
 function deleteObject(obj) {
 
     canvas.remove(obj)
