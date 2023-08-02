@@ -456,7 +456,8 @@
                                 <div class="columns">
                                     <div class="column" style="width: 90%;">
                                         <div class="content">
-                                            <select name="select-change-font" id="select-change-font" draggable="false">
+                                            <select name="select-change-font" id="select-change-font"
+                                                data-action="fontFamily" draggable="false">
                                                 <option style="font-family: 'Times New Roman';">Times New Roman</option>
                                                 <option style="font-family: Roboto;">Roboto</option>
                                                 <option style="font-family: Verdana;">Verdana</option>
@@ -474,7 +475,8 @@
                                 <div class="columns">
                                     <div class="column" style="width: 50%;">
                                         <div class="content">
-                                            <select type="text" draggable="false" name="input-type-font" id="type-font">
+                                            <select type="text" data-action="fontWeight" draggable="false"
+                                                name="input-type-font" id="type-font">
                                                 <option>Regular</option>
                                                 <option>Light</option>
                                                 <option>Bold</option>
@@ -484,9 +486,11 @@
 
                                     <div class="column" style="width: 30%;">
                                         <div class="content">
-                                            <select type="text" draggable="false" name="input-size-font" id="size-font">
+                                            <select type="text" data-action="fontSize" draggable="false"
+                                                name="input-size-font" id="size-font">
                                                 <option>15</option>
                                                 <option>18</option>
+                                                <option selected>20</option>
                                                 <option>24</option>
                                                 <option>32</option>
                                                 <option>38</option>
@@ -526,25 +530,27 @@
                                 <div class="columns">
                                     <div class="column" style="width: 40%;">
                                         <div class="content">
-                                            <i title="Bold" class="fa-solid fa-bold" style="color: #000000;"></i>
+                                            <i title="Bold" id="text-bold" class="fa-solid fa-bold"
+                                                style="color: #000000;"></i>
                                         </div>
                                     </div>
 
                                     <div class="column" style="width: 40%;">
                                         <div class="content">
-                                            <i title="Cursiva" class="fa-solid fa-italic" style="color: #000000;"></i>
+                                            <i title="Cursiva" id="text-italic" class="fa-solid fa-italic"
+                                                style="color: #000000;"></i>
                                         </div>
                                     </div>
 
                                     <div class="column" style="width: 40%;">
                                         <div class="content">
-                                            <i title="Subrayado" class="fa-solid fa-underline"
+                                            <i title="Subrayado" id="text-underline" class="fa-solid fa-underline"
                                                 style="color: #000000;"></i>
                                         </div>
                                     </div>
                                     <div class="column" style="width: 40%;">
                                         <div class="content">
-                                            <i title="Tachado" class="fa-solid fa-strikethrough"
+                                            <i title="Tachado" id="text-strikethrough" class="fa-solid fa-strikethrough"
                                                 style="color: #000000;"></i>
                                         </div>
                                     </div>
