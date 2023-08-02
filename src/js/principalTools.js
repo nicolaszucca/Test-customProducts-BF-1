@@ -193,11 +193,15 @@ rotateLeftIcon.addEventListener('click', e => {
     if (!object) { return }
 
     //Decrement the angle by 45 degrees
-    const angle = object.angle
-    const newAngle = angle == 355 ? 0 : angle - 45
+    let newAngle = object.angle == 355 ? 0 : object.angle - 45;
+
+    if (newAngle === -360) {
+        newAngle = 0;
+    }
 
     object.rotate(newAngle)
-    canvas.renderAll()
+    rotationInput.value = (newAngle).toFixed(0);
+    canvas.renderAll();
 })
 rotateRightIcon.addEventListener('click', e => {
     const object = canvas.getActiveObject();
@@ -205,11 +209,15 @@ rotateRightIcon.addEventListener('click', e => {
     if (!object) { return }
 
     //Increment the angle by 45 degrees
-    const angle = object.angle
-    const newAngle = angle == 355 ? 0 : angle + 45
+    let newAngle = object.angle == 355 ? 0 : object.angle + 45;
+
+    if (newAngle === 360) {
+        newAngle = 0;
+    }
 
     object.rotate(newAngle)
-    canvas.renderAll()
+    rotationInput.value = (newAngle).toFixed(0);
+    canvas.renderAll();
 })
 
 
