@@ -10,7 +10,18 @@
 */
 
 //HTML REFERENCES: 
-const alignElementsBtns = document.querySelectorAll('.align-svg')
+const alignElementsBtns = document.querySelectorAll('.align-svg');
+
+const positionXInput = document.querySelector('#input-positionX');
+const positionYInput = document.querySelector('#input-positionY');
+
+const sizeWInput = document.querySelector('#input-sizeW');
+const sizeHInput = document.querySelector('#input-sizeH');
+
+//appearance
+const changFontFamilyBtn = document.querySelector('#select-change-font')
+
+const rotationInput = document.querySelector('#input-rotation');
 
 //Get all elements and loop through them adding event listeners
 alignElementsBtns.forEach(element => {
@@ -123,6 +134,17 @@ alignElementsBtns.forEach(element => {
 
 
 
+/* change font-family */
+changFontFamilyBtn.onchange = function () {
+    loadAndUse(this.value);
+    getDimensionsInCm();
+    getAngle();
+    getPosition()
+}
+function loadAndUse(font) {
+    canvas.getActiveObject().set("fontFamily", font);
+    canvas.requestRenderAll();
+}
 
 
 
