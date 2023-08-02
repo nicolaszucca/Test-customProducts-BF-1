@@ -19,7 +19,9 @@ const sizeWInput = document.querySelector('#input-sizeW');
 const sizeHInput = document.querySelector('#input-sizeH');
 
 //appearance
-const changFontFamilyBtn = document.querySelector('#select-change-font')
+const changeFontFamilyBtn = document.querySelector('#select-change-font');
+const changfontWeightBtn = document.querySelector('#type-font');
+const changfontSizetBtn = document.querySelector('#size-font');
 
 const rotationInput = document.querySelector('#input-rotation');
 
@@ -135,17 +137,46 @@ alignElementsBtns.forEach(element => {
 
 
 /* change font-family */
-changFontFamilyBtn.onchange = function () {
-    loadAndUse(this.value);
+changeFontFamilyBtn.onchange = function () {
+    const action = this.getAttribute('data-action')
+    loadAndUse(action, this.value);
+}
+/* change font-weight */
+changfontWeightBtn.onchange = function () {
+    const action = this.getAttribute('data-action')
+    loadAndUse(action, this.value);
+
+}
+/* change font-size */
+changfontSizetBtn.onchange = function () {
+    const action = this.getAttribute('data-action')
+    loadAndUse(action, this.value);
+
+}
+function loadAndUse(action, value) {
+
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    switch (action) {
+        case 'fontFamily': {
+            object.set(action, value);
+            break;
+        }
+        case 'fontWeight': {
+            object.set(action, value);
+            break;
+        }
+        case 'fontSize': {
+            object.set(action, value);
+            break;
+        }
+        default:
+            break;
+    }
+
     getDimensionsInCm();
     getAngle();
     getPosition()
-}
-function loadAndUse(font) {
-    canvas.getActiveObject().set("fontFamily", font);
     canvas.requestRenderAll();
 }
-
-
-
-
