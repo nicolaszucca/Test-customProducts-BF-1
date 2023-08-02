@@ -10,7 +10,6 @@
 */
 
 //HTML REFERENCES: 
-const alignElementsBtns = document.querySelectorAll('.align-svg');
 
 const positionXInput = document.querySelector('#input-positionX');
 const positionYInput = document.querySelector('#input-positionY');
@@ -18,12 +17,26 @@ const positionYInput = document.querySelector('#input-positionY');
 const sizeWInput = document.querySelector('#input-sizeW');
 const sizeHInput = document.querySelector('#input-sizeH');
 
+const rotationInput = document.querySelector('#input-rotation');
+
+
+
+const alignElementsBtns = document.querySelectorAll('.align-svg');
+
 //appearance
 const changeFontFamilyBtn = document.querySelector('#select-change-font');
 const changfontWeightBtn = document.querySelector('#type-font');
 const changfontSizetBtn = document.querySelector('#size-font');
 
-const rotationInput = document.querySelector('#input-rotation');
+
+const textBoldBtn = document.querySelector('#text-bold');
+const textItalicBtn = document.querySelector('#text-italic');
+const textUnderlineBtn = document.querySelector('#text-underline');
+const textStrikethroughBtn = document.querySelector('#text-strikethrough');
+let isBold = false;
+let isItalic = false;
+let isUnderline = false;
+let isStrikethrough = false;
 
 //Get all elements and loop through them adding event listeners
 alignElementsBtns.forEach(element => {
@@ -180,3 +193,50 @@ function loadAndUse(action, value) {
     getPosition()
     canvas.requestRenderAll();
 }
+
+
+
+
+
+/* decoration (bold, italic, underline, strikeThrough )*/
+textBoldBtn.addEventListener('click', e => {
+    isBold = !isBold;
+
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+
+    object.set('fontWeight', isBold ? 'bold' : 'normal');
+    canvas.renderAll();
+
+})
+textItalicBtn.addEventListener('click', e => {
+    isItalic = !isItalic;
+
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+
+    object.set('fontStyle', isItalic ? 'italic' : 'normal');
+    canvas.renderAll();
+})
+textUnderlineBtn.addEventListener('click', e => {
+    isUnderline = !isUnderline;
+
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+
+    object.set('underline', isUnderline ? true : false);
+    canvas.renderAll();
+})
+textStrikethroughBtn.addEventListener('click', e => {
+    isStrikethrough = !isStrikethrough;
+
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+
+    object.set('linethrough', isStrikethrough ? true : false);
+    canvas.renderAll();
+})
