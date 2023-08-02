@@ -38,6 +38,14 @@ let isItalic = false;
 let isUnderline = false;
 let isStrikethrough = false;
 
+
+const textAlignLeftBtn = document.querySelector('#text-align-left');
+const textAlignCenterBtn = document.querySelector('#text-align-center');
+const textAlignRightBtn = document.querySelector('#text-align-right');
+const textAlignJustifyBtn = document.querySelector('#text-align-justify');
+
+
+
 //Get all elements and loop through them adding event listeners
 alignElementsBtns.forEach(element => {
     element.addEventListener('click', function getAction() {
@@ -239,4 +247,43 @@ textStrikethroughBtn.addEventListener('click', e => {
 
     object.set('linethrough', isStrikethrough ? true : false);
     canvas.renderAll();
+})
+
+
+
+
+
+/* text alignment*/
+textAlignLeftBtn.addEventListener('click', e => {
+    const object = canvas.getActiveObject();
+
+    if (!object) { return }
+
+    object.set('textAlign', 'left')
+    canvas.renderAll()
+
+})
+textAlignCenterBtn.addEventListener('click', e => {
+    const object = canvas.getActiveObject();
+
+    if (!object) { return }
+
+    object.set('textAlign', 'center')
+    canvas.renderAll()
+})
+textAlignRightBtn.addEventListener('click', e => {
+    const object = canvas.getActiveObject();
+
+    if (!object) { return }
+
+    object.set('textAlign', 'right')
+    canvas.renderAll()
+})
+textAlignJustifyBtn.addEventListener('click', e => {
+    const object = canvas.getActiveObject();
+
+    if (!object) { return }
+
+    object.set('textAlign', 'justify')
+    canvas.renderAll()
 })
