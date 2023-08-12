@@ -46,6 +46,42 @@ const textAlignJustifyBtn = document.querySelector('#text-align-justify');
 
 
 
+sizeWInput.addEventListener('change', e => {
+    e.preventDefault();
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    const value = ((e.target.value * 96 / 2.54) / object.scaleX);
+
+    object.set({ width: value });
+    canvas.requestRenderAll();
+})
+
+sizeHInput.addEventListener('change', e => {
+    e.preventDefault();
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    const value = ((e.target.value * 96 / 2.54) / object.scaleY);
+
+
+    object.set({ height: value });
+
+    canvas.requestRenderAll();
+})
+
+rotationInput.addEventListener('change', e => {
+    e.preventDefault();
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    const value = parseInt(e.target.value);
+
+    object.rotate(value);
+    canvas.renderAll();
+})
+
+
 //Get all elements and loop through them adding event listeners
 alignElementsBtns.forEach(element => {
     element.addEventListener('click', function getAction() {
