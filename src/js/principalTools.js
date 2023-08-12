@@ -2,7 +2,7 @@
 *
 *   Tools above canvas:
 *
-*   TODO: en main[undo, redo],
+*   NOTE: en ./fabric.js -> [undo, redo],
 *   [createText, insertImage],
 *   [flipX, flipY, clone, rotateLeft, rotateRight],
 *   [groupElements, ungroupElements],
@@ -50,9 +50,9 @@ createTextBtn.addEventListener('click', e => {
 *   keys in styles property with any value.
 * 
 */
-function createText(x = 75, y = 430, pos = 325) {
+function createText(text = 'test') {
 
-    return new fabric.IText('Nicolas', {
+    return new fabric.IText(text, {
         left: 50,
         top: 50,
         customType: 'textbox',
@@ -62,7 +62,7 @@ function createText(x = 75, y = 430, pos = 325) {
 
         backgroundColor: 'transparent',
 
-        styles: { //textBackgroundColor: '', fontSize: n, charSp: n, lheight: n
+        /* styles: { //textBackgroundColor: '', fontSize: n, charSp: n, lheight: n
             0: {
                 0: { lheight: 1, charSp: 10 },
                 1: { lheight: 1, charSp: 10 },
@@ -72,12 +72,28 @@ function createText(x = 75, y = 430, pos = 325) {
                 5: { textBackgroundColor: 'red', lheight: 1, charSp: 10 },
                 6: { lheight: 1, charSp: 10 },
             },
-        }
+        } */
     })
 }
 
+function createCustomText(text, top, left, width, height, fontFamily, fontSize, fontWeight, scaleX, scaleY, value = null) {
+    return new fabric.IText(text, {
+        left,
+        top,
+        width,
+        height,
+        customType: 'textbox',
+        fontFamily,
+        fontSize,
+        fontWeight,
+        scaleX,
+        scaleY,
+        value,
 
-
+        editable: true,
+        backgroundColor: 'transparent',
+    })
+}
 
 
 /*INSERT IMAGE*/
@@ -134,7 +150,7 @@ flipXBtn.addEventListener('click', e => {
     if (!object) { return console.log("no hay obj") }
 
     object.toggle('flipX');
-    // saveCanvasState()
+    saveCanvasState()
     canvas.renderAll();
 })
 flipYBtn.addEventListener('click', e => {
@@ -142,7 +158,7 @@ flipYBtn.addEventListener('click', e => {
     if (!object) { return console.log("no hay obj") }
 
     object.toggle('flipY');
-    // saveCanvasState()
+    saveCanvasState()
     canvas.renderAll();
 })
 
@@ -201,6 +217,7 @@ rotateLeftIcon.addEventListener('click', e => {
 
     object.rotate(newAngle)
     rotationInput.value = (newAngle).toFixed(0);
+    saveCanvasState()
     canvas.renderAll();
 })
 rotateRightIcon.addEventListener('click', e => {
@@ -217,6 +234,7 @@ rotateRightIcon.addEventListener('click', e => {
 
     object.rotate(newAngle)
     rotationInput.value = (newAngle).toFixed(0);
+    saveCanvasState()
     canvas.renderAll();
 })
 
@@ -238,6 +256,7 @@ groupItemsBtn.addEventListener('click', e => {
     canvas.getActiveObject().toGroup();
 })
 ungroupItemsBtn.addEventListener('click', e => {
+    //FIXME: BUG -> undo redo functions
     const object = canvas.getActiveObject()
 
     if (!object) {
@@ -254,7 +273,6 @@ ungroupItemsBtn.addEventListener('click', e => {
 
 
 
-//TODO: bringToFront vs bringForward != functions?  
 /* LAYER SISTEM (BRING TO FRONT & SEND TO BACK) BUTTONS */
 bringToFrontIcon.addEventListener('click', e => {
     const object = canvas.getActiveObject();
@@ -263,8 +281,10 @@ bringToFrontIcon.addEventListener('click', e => {
 
     // canvas.bringToFront(object)
     canvas.bringForward(object)
+    saveCanvasState()
     canvas.discardActiveObject();
     canvas.renderAll();
+
 })
 sentToBackIcon.addEventListener('click', e => {
     const object = canvas.getActiveObject();
@@ -272,6 +292,7 @@ sentToBackIcon.addEventListener('click', e => {
     if (!object) { return }
 
     canvas.sendBackwards(object);
+    saveCanvasState()
     canvas.discardActiveObject();
     canvas.renderAll();
 })
@@ -287,10 +308,10 @@ deleteIcon.addEventListener('click', e => {
     if (!object) { return }
 
     if (object.type === "activeSelection") {
-        return deleteObjects(object._objects);
+        return deleteObjects(object._objects), saveCanvasState();
     }
 
-    return deleteObject(object);
+    return deleteObject(object), saveCanvasState();
 })
 document.addEventListener('keydown', (e) => {
     const object = canvas.getActiveObject();
@@ -299,10 +320,10 @@ document.addEventListener('keydown', (e) => {
     if (e.key != 'Delete' || !object) { return }
 
     if (e.key === 'Delete' && object.type === 'activeSelection') {
-        return deleteObjects(object._objects);
+        return deleteObjects(object._objects), saveCanvasState();
     }
 
-    return deleteObject(object);
+    return deleteObject(object), saveCanvasState();
 })
 function deleteObject(obj) {
 
