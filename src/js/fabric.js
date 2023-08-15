@@ -361,5 +361,7 @@ function validResize() {
                 return true
             }
         })
+    } else if (object.type === 'image') {
+        return object.set({ lockRotation: true, lockScalingX: true, lockScalingY: true, lockScalingFlip: true });
     }
 }
