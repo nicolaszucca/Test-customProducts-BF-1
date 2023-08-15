@@ -25,13 +25,14 @@ canvasContainer.addEventListener('drop', (e) => {
 
     fabric.Image.fromURL(image, function (img) {
         // Escalar la imagen para ajustarla al canvas
-        img.scaleToWidth(400);
-        img.scaleToHeight(400);
         img.customType = 'imageBox'
 
         // Agregar la imagen al canvas
-        //canvas.clear(); // Limpiar el canvas antes de agregar la nueva imagen
         canvas.add(img);
-        canvas.renderAll();
+        canvas.setActiveObject(img);
+
+        const obj = canvas.getActiveObject();
+        canvas.viewportCenterObject(obj);
+        canvas.renderAll()
     });
 })
