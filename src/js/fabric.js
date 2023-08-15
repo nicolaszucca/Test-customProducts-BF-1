@@ -160,6 +160,7 @@ let key = true;
 canvas.on({
     //select objects
     'selection:created': (opt) => {
+        validResize();
         getDimensionsInCm();
         getPosition()
         getAngle();
@@ -346,3 +347,19 @@ redoButton.addEventListener('click', (e) => {
         //console.log("mods " + mods);
     } */
 })
+
+function validResize() {
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    if (object.type === 'group' || object.type === 'activeSelection') {
+
+        object._objects.forEach(element => {
+            if (element.type === 'image') {
+                return object.set({ lockRotation: true, lockScalingX: true, lockScalingY: true, lockScalingFlip: true });
+            } else {
+                return true
+            }
+        })
+    }
+}

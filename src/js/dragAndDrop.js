@@ -31,6 +31,7 @@ canvasContainer.addEventListener('drop', (e) => {
         canvas.add(img);
         canvas.setActiveObject(img);
         canvas.viewportCenterObject(img);
+        img.set({ lockRotation: true, lockScalingX: true, lockScalingY: true, lockScalingFlip: true });
 
         canvas.renderAll()
     });
