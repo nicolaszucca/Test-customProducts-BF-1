@@ -144,7 +144,6 @@ function handleFileUpload(event) {
 
 
 /* FLIP X & FLIP Y OBJECTS*/
-//TODO: saveCanvasState()
 flipXBtn.addEventListener('click', e => {
     const object = canvas.getActiveObject();
     if (!object) { return console.log("no hay obj") }
