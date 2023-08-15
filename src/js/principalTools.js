@@ -254,6 +254,7 @@ groupItemsBtn.addEventListener('click', e => {
     }
 
     canvas.getActiveObject().toGroup();
+    validResize()
 })
 ungroupItemsBtn.addEventListener('click', e => {
     //FIXME: BUG -> undo redo functions
@@ -266,6 +267,7 @@ ungroupItemsBtn.addEventListener('click', e => {
         return;
     }
     object.toActiveSelection();
+    validResize()
     canvas.requestRenderAll();
 })
 
