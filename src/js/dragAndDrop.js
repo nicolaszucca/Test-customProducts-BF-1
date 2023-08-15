@@ -30,9 +30,8 @@ canvasContainer.addEventListener('drop', (e) => {
         // Agregar la imagen al canvas
         canvas.add(img);
         canvas.setActiveObject(img);
+        canvas.viewportCenterObject(img);
 
-        const obj = canvas.getActiveObject();
-        canvas.viewportCenterObject(obj);
         canvas.renderAll()
     });
 })
