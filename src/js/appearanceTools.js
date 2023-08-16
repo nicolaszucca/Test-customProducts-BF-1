@@ -44,7 +44,24 @@ const textAlignCenterBtn = document.querySelector('#text-align-center');
 const textAlignRightBtn = document.querySelector('#text-align-right');
 const textAlignJustifyBtn = document.querySelector('#text-align-justify');
 
+positionXInput.addEventListener('change', (e) => {
+    const value = parseInt(e.target.value);
 
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    object.set({ left: value })
+    canvas.renderAll();
+})
+positionYInput.addEventListener('change', (e) => {
+    const object = canvas.getActiveObject();
+    if (!object) { return }
+
+    const value = parseInt(e.target.value);
+
+    object.set({ top: value })
+    canvas.renderAll();
+})
 
 sizeWInput.addEventListener('change', e => {
     e.preventDefault();
