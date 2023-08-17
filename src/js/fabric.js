@@ -385,6 +385,10 @@ document.addEventListener('keydown', (e) => {
     const object = canvas.getActiveObject();
     const key = e.key;
 
+    if (positionXInput === document.activeElement || positionYInput === document.activeElement) {
+        return;
+    }
+
     if (!object) { return }
 
     switch (key) {
