@@ -365,3 +365,42 @@ function validResize() {
         return object.set({ lockRotation: true, lockScalingX: true, lockScalingY: true, lockScalingFlip: true });
     }
 }
+
+/* KEYBOARDS MOVEMENTS*/
+
+document.addEventListener('keydown', (e) => {
+    const object = canvas.getActiveObject();
+    const key = e.key;
+
+    if (!object) { return }
+
+    switch (key) {
+        case 'ArrowLeft': {
+            object.set({ left: object.left - 1 });
+            break;
+        }
+        case 'ArrowUp': {
+            object.set({ top: object.top - 1 });
+            break;
+        }
+        case 'ArrowRight': {
+            object.set({ left: object.left + 1 });
+            break;
+        }
+        case 'ArrowDown': {
+            object.set({ top: object.top + 1 });
+            break;
+        }
+        case 'Delete': {
+            if (object.type === 'activeSelection') {
+                return deleteObjects(object._objects), saveCanvasState();
+
+            }
+            return deleteObject(object), saveCanvasState();
+        }
+        default:
+            break;
+    }
+    getPosition();
+    canvas.renderAll();
+})
