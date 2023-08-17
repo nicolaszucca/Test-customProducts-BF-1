@@ -129,15 +129,45 @@ const undoButton = document.querySelector('#undo-icon');
 const redoButton = document.querySelector('#redo-icon');
 
 //zoom with mouse wheel 
-canvas.on('mouse:wheel', function (opt) {
-    const delta = opt.e.deltaY;
-    let zoom = canvas.getZoom();
-    zoom *= 0.999 ** delta;
-    if (zoom > 20) zoom = 20;
-    if (zoom < 0.01) zoom = 0.01;
-    canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
-    opt.e.preventDefault();
-    opt.e.stopPropagation();
+canvas.on('mouse:wheel', function (event) {
+    /** Canvas mouse:wheel event handler */
+    const currentVP = canvas.viewportTransform;
+    const delta = event.e.deltaY;
+    const currentZoom = canvas.getZoom();
+    const zoomDelta = 0.05;
+    const minAllowedZoom = 0.1; // 10 %
+    const maxAllowedZoom = 3; // 300 %
+
+    // new zoom
+    let zoom = currentZoom;
+
+    if (delta > 0) {
+        zoom -= zoomDelta;
+    }
+    else {
+        zoom += zoomDelta;
+    }
+
+    // prevent label from going out of the canvas
+    const label = canvas.getObjects()
+        .filter((q) => q.type === 'image' && q.type === 'group' && q.type === 'i-text')[0];
+
+    // if within allow range, zoom to point otherwise skip event
+    if ((zoom >= minAllowedZoom) && (zoom <= maxAllowedZoom)) {
+
+        const point = new fabric.Point(event.e.offsetX, event.e.offsetY);
+
+        canvas.zoomToPoint(point, zoom);
+
+        const isOnScreen = label.isOnScreen();
+        if (!isOnScreen) {
+            canvas.setViewportTransform(currentVP);
+        }
+    }
+
+    event.e.preventDefault();
+    event.e.stopPropagation();
+
 })
 let key = true;
 canvas.on({
