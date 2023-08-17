@@ -31,6 +31,8 @@ const bringToFrontIcon = document.querySelector('#bring-to-front-icon');
 const sentToBackIcon = document.querySelector('#send-to-back-icon');
 
 
+const zoomIcon = document.querySelector('#zoom-icon');
+
 const deleteIcon = document.querySelector('#delete-icon');
 
 
@@ -299,8 +301,17 @@ sentToBackIcon.addEventListener('click', e => {
 })
 
 
+//resetZoom
+zoomIcon.addEventListener('click', e => {
+    //viewport with no zoom = 1, 0, 0, 1, 0, 0
+    canvas.setViewportTransform([1, 0, 0, 1, 0, 0]);
+    canvas.getObjects().forEach(obj => {
+        obj.center();
+        obj.setCoords()
+    })
 
-
+    canvas.renderAll();
+})
 
 /* DELETE ICON */
 deleteIcon.addEventListener('click', e => {
