@@ -67,7 +67,7 @@ sizeWInput.addEventListener('change', e => {
     e.preventDefault();
     const object = canvas.getActiveObject();
     if (!object) { return }
-
+    if (object.type === 'image') { return }
     const value = ((e.target.value * 96 / 2.54) / object.scaleX);
 
     object.set({ width: value });
@@ -78,7 +78,7 @@ sizeHInput.addEventListener('change', e => {
     e.preventDefault();
     const object = canvas.getActiveObject();
     if (!object) { return }
-
+    if (object.type === 'image') { return }
     const value = ((e.target.value * 96 / 2.54) / object.scaleY);
 
 
