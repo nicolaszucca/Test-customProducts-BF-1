@@ -138,23 +138,6 @@ canvas.on('mouse:wheel', function (opt) {
     canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
     opt.e.preventDefault();
     opt.e.stopPropagation();
-
-    const vpt = this.viewportTransform;
-    if (zoom < 400 / 1000) {
-        vpt[4] = 200 - 1000 * zoom / 2;
-        vpt[5] = 200 - 1000 * zoom / 2;
-    } else {
-        if (vpt[4] >= 0) {
-            vpt[4] = 0;
-        } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
-            vpt[4] = canvas.getWidth() - 1000 * zoom;
-        }
-        if (vpt[5] >= 0) {
-            vpt[5] = 0;
-        } else if (vpt[5] < canvas.getHeight() - 1000 * zoom) {
-            vpt[5] = canvas.getHeight() - 1000 * zoom;
-        }
-    }
 })
 let key = true;
 canvas.on({
